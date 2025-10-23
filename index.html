@@ -88,8 +88,24 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log(`Video ${index + 1} load started`);
     });
     
+    video.addEventListener('loadedmetadata', () => {
+      console.log(`Video ${index + 1} metadata loaded:`, {
+        duration: video.duration,
+        videoWidth: video.videoWidth,
+        videoHeight: video.videoHeight
+      });
+    });
+    
     video.addEventListener('loadeddata', () => {
-      console.log(`Video ${index + 1} loaded successfully`);
+      console.log(`Video ${index + 1} data loaded successfully`);
+    });
+    
+    video.addEventListener('canplay', () => {
+      console.log(`Video ${index + 1} can play`);
+    });
+    
+    video.addEventListener('canplaythrough', () => {
+      console.log(`Video ${index + 1} can play through`);
     });
     
     video.addEventListener('error', (e) => {
@@ -141,10 +157,21 @@ document.addEventListener('DOMContentLoaded', function() {
     video.style.position = 'relative';
     video.style.backgroundColor = 'red'; // Test için kırmızı arka plan
     
-    // Force video to play
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
+    // Test video sources
+    const sources = video.querySelectorAll('source');
+    console.log(`Video ${index + 1} sources:`, Array.from(sources).map(s => ({
+      src: s.src,
+      type: s.type,
+      media: s.media
+    })));
+    
+    // Test if video has currentSrc
+    if (video.currentSrc) {
+      console.log(`Video ${index + 1} currentSrc:`, video.currentSrc);
+    } else {
+      console.log(`Video ${index + 1} no currentSrc - trying to load`);
+      video.load();
+    }
     
     // Try to play video
     video.play().then(() => {
@@ -155,12 +182,25 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Test video visibility after 2 seconds
     setTimeout(() => {
+      const rect = video.getBoundingClientRect();
       console.log(`Video ${index + 1} visibility test:`, {
         isVisible: video.offsetWidth > 0 && video.offsetHeight > 0,
         offsetWidth: video.offsetWidth,
         offsetHeight: video.offsetHeight,
-        boundingRect: video.getBoundingClientRect(),
-        isInViewport: video.getBoundingClientRect().top < window.innerHeight
+        boundingRect: {
+          top: rect.top,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height
+        },
+        isInViewport: rect.top < window.innerHeight,
+        videoWidth: video.videoWidth,
+        videoHeight: video.videoHeight,
+        readyState: video.readyState,
+        networkState: video.networkState,
+        error: video.error,
+        currentSrc: video.currentSrc,
+        src: video.src
       });
     }, 2000);
     
