@@ -57,7 +57,27 @@ document.addEventListener('DOMContentLoaded', function() {
       error: video.error,
       videoWidth: video.videoWidth,
       videoHeight: video.videoHeight,
-      duration: video.duration
+      duration: video.duration,
+      paused: video.paused,
+      ended: video.ended,
+      currentTime: video.currentTime,
+      style: {
+        display: video.style.display,
+        visibility: video.style.visibility,
+        opacity: video.style.opacity,
+        width: video.style.width,
+        height: video.style.height
+      },
+      computedStyle: {
+        display: window.getComputedStyle(video).display,
+        visibility: window.getComputedStyle(video).visibility,
+        opacity: window.getComputedStyle(video).opacity,
+        width: window.getComputedStyle(video).width,
+        height: window.getComputedStyle(video).height
+      },
+      parentElement: video.parentElement?.tagName,
+      offsetWidth: video.offsetWidth,
+      offsetHeight: video.offsetHeight
     });
     
     video.addEventListener('loadstart', () => {
@@ -107,8 +127,25 @@ document.addEventListener('DOMContentLoaded', function() {
       video.parentNode.insertBefore(placeholder, video);
     });
     
-    video.addEventListener('canplay', () => {
-      console.log(`Video ${index + 1} can play`);
+    // Force video visibility
+    video.style.display = 'block';
+    video.style.visibility = 'visible';
+    video.style.opacity = '1';
+    video.style.width = '100%';
+    video.style.height = '100%';
+    video.style.zIndex = '10';
+    video.style.position = 'relative';
+    
+    // Force video to play
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    
+    // Try to play video
+    video.play().then(() => {
+      console.log(`Video ${index + 1} playing successfully`);
+    }).catch((error) => {
+      console.error(`Video ${index + 1} play failed:`, error);
     });
     
     // Test video file accessibility
