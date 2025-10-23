@@ -77,7 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
       },
       parentElement: video.parentElement?.tagName,
       offsetWidth: video.offsetWidth,
-      offsetHeight: video.offsetHeight
+      offsetHeight: video.offsetHeight,
+      sources: Array.from(video.querySelectorAll('source')).map(s => ({
+        src: s.src,
+        type: s.type
+      }))
     });
     
     video.addEventListener('loadstart', () => {
@@ -135,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
     video.style.height = '100%';
     video.style.zIndex = '10';
     video.style.position = 'relative';
+    video.style.backgroundColor = 'red'; // Test için kırmızı arka plan
     
     // Force video to play
     video.muted = true;
@@ -147,6 +152,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }).catch((error) => {
       console.error(`Video ${index + 1} play failed:`, error);
     });
+    
+    // Test video visibility after 2 seconds
+    setTimeout(() => {
+      console.log(`Video ${index + 1} visibility test:`, {
+        isVisible: video.offsetWidth > 0 && video.offsetHeight > 0,
+        offsetWidth: video.offsetWidth,
+        offsetHeight: video.offsetHeight,
+        boundingRect: video.getBoundingClientRect(),
+        isInViewport: video.getBoundingClientRect().top < window.innerHeight
+      });
+    }, 2000);
     
     // Test video file accessibility
     fetch(video.src, { method: 'HEAD' })
