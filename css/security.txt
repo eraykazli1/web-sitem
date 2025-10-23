@@ -1,0 +1,20 @@
+Contact: mailto:kalidijitalmarketingagency@gmail.com
+Contact: https://kaliversee.online/#contact
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://kaliversee.online/pgp-key.txt
+Preferred-Languages: tr, en
+Canonical: https://kaliversee.online/.well-known/security.txt
+Policy: https://kaliversee.online/kvkk.html
+Hiring: https://kaliversee.online/#contact
+
+# Güvenlik Açığı Bildirimi
+# Kalı Dijital Marketing Agency güvenlik açıklarını ciddiye alır.
+# Güvenlik açığı tespit ettiyseniz, lütfen yukarıdaki iletişim bilgileri üzerinden bizimle iletişime geçin.
+# 
+# Güvenlik açığı bildirimi için:
+# 1. Açığı detaylı bir şekilde açıklayın
+# 2. Tekrarlama adımlarını belirtin
+# 3. Mümkünse proof-of-concept sağlayın
+# 4. İletişim bilgilerinizi ekleyin
+#
+# Teşekkürler!

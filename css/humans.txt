@@ -1,0 +1,44 @@
+/* TEAM */
+Developer: Kalı Dijital Marketing Agency Team
+Contact: kalidijitalmarketingagency@gmail.com
+From: Türkiye
+
+/* THANKS */
+Web Fonts: Google Fonts
+Icons: Heroicons, Feather Icons
+Animations: GSAP, Tailwind CSS
+Framework: Vanilla JavaScript, CSS3, HTML5
+
+/* SITE */
+Last update: 2025/01/15
+Language: Turkish
+Doctype: HTML5
+IDE: VS Code, Cursor
+Technologies: HTML5, CSS3, JavaScript ES6+, PWA, Service Workers
+Performance: Optimized images, lazy loading, critical CSS
+SEO: Schema.org, Open Graph, Twitter Cards, Sitemap
+Security: HTTPS, CSP Headers, Security.txt
+Analytics: Google Analytics (to be configured)
+
+/* MISSION */
+Kalı Dijital Marketing Agency olarak, modern ve veri odaklı dijital pazarlama 
+çözümleri sunuyoruz. Web sitemiz, kullanıcı deneyimini ön planda tutarak, 
+performans ve erişilebilirlik standartlarına uygun olarak geliştirilmiştir.
+
+/* PHILOSOPHY */
+- Kullanıcı deneyimi her şeyden önemli
+- Performans optimizasyonu kritik
+- Güvenlik her zaman öncelik
+- Erişilebilirlik herkes için
+- Modern web standartlarına uyum
+- Mobil öncelikli tasarım
+- SEO dostu yapı
+
+/* CONTACT */
+Website: https://kaliversee.online
+Email: kalidijitalmarketingagency@gmail.com
+Services: SEO, Google Ads, Social Media Marketing, Web Design, E-commerce
+
+/* CREDITS */
+Bu web sitesi Kalı Dijital Marketing Agency tarafından tasarlanmış ve geliştirilmiştir.
+Tüm hakları saklıdır © 2025 Kalı Dijital Marketing Agency

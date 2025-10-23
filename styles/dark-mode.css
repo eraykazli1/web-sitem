@@ -1,0 +1,108 @@
+/* Dark Mode Styles */
+/* Dark mode için özel stiller */
+
+[data-theme="dark"] {
+  /* Dark mode değişkenleri */
+  --bg-primary: #0B1220;
+  --bg-secondary: #1a2332;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode toggle button styles */
+.theme-toggle {
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.05);
+}
+
+/* Dark mode specific adjustments */
+.dark {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.dark .bg-white {
+  background-color: var(--bg-secondary) !important;
+}
+
+.dark .text-black {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-black\/70 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .ring-black\/10 {
+  border-color: var(--border-color) !important;
+}
+
+/* Dark mode card styles */
+.dark .service-card {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .service-card:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Dark mode form styles */
+.dark .contact-input {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+}
+
+.dark .contact-input:focus {
+  border-color: #10B981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+}
+
+/* Dark mode navigation */
+.dark .nav-item {
+  color: var(--text-primary);
+}
+
+.dark .nav-item:hover {
+  color: #10B981;
+}
+
+/* Dark mode footer */
+.dark footer {
+  background-color: var(--bg-secondary);
+  border-color: var(--border-color);
+}
+
+/* Dark mode transitions */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific button styles */
+.dark .btn-grad {
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: white;
+}
+
+.dark .btn-grad:hover {
+  background: linear-gradient(135deg, #059669, #047857);
+}
+
+/* Dark mode text color fixes */
+.dark .text-black\/60 {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.dark .text-black\/70 {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.dark .text-black\/80 {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+

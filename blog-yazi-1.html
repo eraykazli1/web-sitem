@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="tr" class="scroll-smooth antialiased">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>2025'te Dijital Pazarlama Trendleri - kaliversee.online</title>
+    <meta name="description" content="2025 yılında dijital pazarlamada öne çıkan trendler ve stratejiler hakkında kapsamlı rehber">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./resimlerim/logom.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./resimlerim/logom.png">
+    <link rel="apple-touch-icon" href="./resimlerim/logom.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+      // Suppress Tailwind CDN production warning
+      window.tailwindConfig = window.tailwindConfig || {};
+      window.tailwindConfig.suppressWarnings = true;
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Poppins', 'system-ui', 'sans-serif'],
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#ECFDF5',
+                            100: '#D1FAE5',
+                            200: '#A7F3D0',
+                            300: '#6EE7B7',
+                            400: '#34D399',
+                            500: '#10B981', // emerald
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065F46',
+                            900: '#064E3B'
+                        },
+                        mint: '#B7F4E0',
+                        lime: '#A3E635',
+                        teal: '#14B8A6',
+                        coral: '#F97360',
+                        night: '#0B1220'
+                    },
+                    boxShadow: {
+                        soft: '0 8px 30px rgba(16,185,129,.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="./styles/site.css">
+</head>
+
+<body class="bg-white text-night dark:bg-night dark:text-white">
+    <!-- Background Video -->
+    <div class="fixed inset-0 -z-20 overflow-hidden" aria-hidden="true">
+        <video id="siteVideo" class="w-full h-full object-cover" src="./19705424-hd_1920_1080_24fps.mp4" autoplay muted playsinline loop preload="metadata" poster=""></video>
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/80 dark:from-night/70 dark:via-night/50 dark:to-night/70"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/80 dark:supports-[backdrop-filter]:bg-night/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <div class="inline-flex w-12 h-12 rounded-lg overflow-hidden ring-1 ring-black/10 dark:ring-white/10 bg-white/10 flex items-center justify-center">
+                        <img src="./resimlerim/logom.png" alt="kaliversee.online logo" class="max-w-full max-h-full object-contain" loading="eager" />
+                    </div>
+                    <span class="font-heading font-semibold text-lg">kaliversee.online</span>
+                </a>
+                
+                <nav class="hidden md:flex items-center gap-8 font-medium">
+                    <a href="index.html#services" class="hover:text-brand-600 transition">Hizmetler</a>
+                    <a href="index.html#about" class="hover:text-brand-600 transition">Hakkımızda</a>
+                    <a href="index.html#blog" class="hover:text-brand-600 transition">Blog</a>
+                    <a href="index.html#contact" class="hover:text-brand-600 transition">İletişim</a>
+                </nav>
+                
+                <div class="flex items-center gap-3">
+                    <button id="themeToggle" aria-label="Tema Değiştir" class="relative inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/70 dark:bg-white/10 shadow ring-1 ring-black/5 hover:scale-105 transition">
+                        <span class="sr-only">Dark Mode</span>
+                        <svg id="iconSun" class="w-5 h-5 text-amber-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.8 1.42-1.42zm10.48 0l1.79-1.79 1.41 1.41-1.79 1.8-1.41-1.42zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-8h3v-1h-3v1zM4 12H1v-1h3v1zm2.76 7.16l-1.8 1.79 1.41 1.41 1.8-1.79-1.41-1.41zm10.48 0l1.8 1.79 1.41-1.41-1.79-1.8-1.42 1.42zM12 18a6 6 0 110-12 6 6 0 010 12z"/>
+                        </svg>
+                        <svg id="iconMoon" class="absolute w-5 h-5 text-brand-200 hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M21.64 13a9 9 0 11-10.73-10.73 1 1 0 011.14 1.14A7 7 0 1020.5 11.86a1 1 0 011.14 1.14z"/>
+                        </svg>
+                    </button>
+                    <a href="index.html#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-600 text-white hover:bg-brand-500 hover:shadow-soft transition">
+                        Teklif Al
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="px-3 py-1 rounded-full bg-brand-100 dark:bg-brand-900/30 text-brand-700 dark:text-brand-300 text-sm font-medium">Performans Pazarlama</span>
+                    <span class="text-black/60 dark:text-white/60">•</span>
+                    <span class="text-sm text-black/60 dark:text-white/60">15 Ocak 2025</span>
+                    <span class="text-black/60 dark:text-white/60">•</span>
+                    <span class="text-sm text-black/60 dark:text-white/60">8 dk okuma</span>
+                </div>
+                
+                <h1 class="font-heading text-4xl sm:text-5xl mb-6">
+                    2025'te Dijital Pazarlama <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-teal to-lime">Trendleri</span>
+                </h1>
+                
+                <p class="text-xl text-black/70 dark:text-white/70 leading-relaxed">
+                    Dijital pazarlama dünyasında 2025 yılında öne çıkacak trendler, stratejiler ve teknolojiler hakkında kapsamlı bir rehber.
+                </p>
+            </div>
+
+            <article class="prose prose-lg max-w-none">
+                <div class="bg-white/80 dark:bg-white/5 rounded-3xl p-8 md:p-12 ring-1 ring-black/10 dark:ring-white/10 shadow-soft">
+                    <div class="mb-8">
+                        <p class="text-lg text-black/70 dark:text-white/70 leading-relaxed mb-6">
+                            Dijital pazarlama dünyası sürekli evrim geçiriyor. 2025 yılına girdiğimizde, markaların başarılı olabilmesi için takip etmesi gereken yeni trendler ve stratejiler ortaya çıkıyor. Bu yazıda, 2025'te dijital pazarlamada öne çıkacak en önemli trendleri detaylı bir şekilde inceleyeceğiz.
+                        </p>
+                    </div>
+
+                    <section class="mb-10">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">1. Yapay Zeka ve Makine Öğrenmesi</h2>
+                        <div class="mb-6">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                Yapay zeka teknolojileri, dijital pazarlamada devrim yaratmaya devam ediyor. 2025'te AI, pazarlama stratejilerinin her aşamasında daha etkili bir rol oynayacak.
+                            </p>
+                            
+                            <div class="p-6 rounded-2xl bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-blue-900/20 dark:via-white/5 dark:to-cyan-900/20 ring-1 ring-blue-200 dark:ring-blue-800 mb-6">
+                                <h3 class="font-semibold text-blue-600 dark:text-blue-400 mb-3">AI'ın Pazarlamadaki Kullanım Alanları:</h3>
+                                <ul class="space-y-2 text-sm text-black/70 dark:text-white/70">
+                                    <li class="flex items-start gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                        <span>Kişiselleştirilmiş içerik üretimi ve öneriler</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                        <span>Chatbot'lar ve müşteri hizmetleri otomasyonu</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                        <span>Hedef kitle analizi ve segmentasyon</span>
+                                    </li>
+                                    <li class="flex items-start gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0"></span>
+                                        <span>Fiyat optimizasyonu ve dinamik fiyatlandırma</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">2. Sıfır ve Birinci Taraf Veri Stratejileri</h2>
+                        <div class="mb-6">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                Üçüncü taraf çerezlerin kullanımının azalmasıyla birlikte, markalar kendi verilerini toplama ve kullanma konusunda daha stratejik yaklaşımlar benimsiyor.
+                            </p>
+                            
+                            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                                <div class="p-6 rounded-2xl bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-green-900/20 dark:via-white/5 dark:to-emerald-900/20 ring-1 ring-green-200 dark:ring-green-800">
+                                    <h3 class="font-semibold text-green-600 dark:text-green-400 mb-3">Sıfır Taraf Veri</h3>
+                                    <p class="text-sm text-black/70 dark:text-white/70 mb-3">Kullanıcıların doğrudan paylaştığı veriler</p>
+                                    <ul class="space-y-1 text-xs text-black/70 dark:text-white/70">
+                                        <li>• E-posta abonelikleri</li>
+                                        <li>• Anket ve form verileri</li>
+                                        <li>• Müşteri geri bildirimleri</li>
+                                        <li>• Sosyal medya etkileşimleri</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="p-6 rounded-2xl bg-gradient-to-br from-purple-50 via-white to-pink-50 dark:from-purple-900/20 dark:via-white/5 dark:to-pink-900/20 ring-1 ring-purple-200 dark:ring-purple-800">
+                                    <h3 class="font-semibold text-purple-600 dark:text-purple-400 mb-3">Birinci Taraf Veri</h3>
+                                    <p class="text-sm text-black/70 dark:text-white/70 mb-3">Kendi platformlarınızdan toplanan veriler</p>
+                                    <ul class="space-y-1 text-xs text-black/70 dark:text-white/70">
+                                        <li>• Web sitesi analitik verileri</li>
+                                        <li>• Uygulama kullanım verileri</li>
+                                        <li>• Satın alma geçmişi</li>
+                                        <li>• Davranışsal veriler</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">3. Video İçerik ve Kısa Form Video</h2>
+                        <div class="mb-6">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                Video içerik, özellikle kısa form videolar, 2025'te dijital pazarlamanın en güçlü araçlarından biri olmaya devam edecek. TikTok, Instagram Reels ve YouTube Shorts gibi platformlar, markalar için yeni fırsatlar sunuyor.
+                            </p>
+                            
+                            <div class="p-6 rounded-2xl bg-gradient-to-br from-orange-50 via-white to-red-50 dark:from-orange-900/20 dark:via-white/5 dark:to-red-900/20 ring-1 ring-orange-200 dark:ring-orange-800">
+                                <h3 class="font-semibold text-orange-600 dark:text-orange-400 mb-4">Video Pazarlama Stratejileri:</h3>
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="text-center">
+                                        <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="font-medium text-sm mb-1">Eğitici İçerik</h4>
+                                        <p class="text-xs text-black/70 dark:text-white/70">Nasıl yapılır videoları ve rehberler</p>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="font-medium text-sm mb-1">Ürün Tanıtımı</h4>
+                                        <p class="text-xs text-black/70 dark:text-white/70">Ürün özelliklerini gösteren videolar</p>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <div class="w-12 h-12 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 flex items-center justify-center mx-auto mb-2">
+                                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                            </svg>
+                                        </div>
+                                        <h4 class="font-medium text-sm mb-1">Müşteri Hikayeleri</h4>
+                                        <p class="text-xs text-black/70 dark:text-white/70">Başarı hikayeleri ve testimoniallar</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">4. Sürdürülebilirlik ve Etik Pazarlama</h2>
+                        <div class="mb-6">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                Tüketiciler, markaların sürdürülebilirlik ve etik değerler konusundaki yaklaşımlarını giderek daha fazla önemsiyor. 2025'te, bu konular pazarlama stratejilerinin merkezinde yer alacak.
+                            </p>
+                            
+                            <div class="space-y-4">
+                                <div class="p-4 rounded-xl bg-white/50 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10">
+                                    <h3 class="font-semibold text-brand-600 mb-2">Sürdürülebilir Pazarlama Yaklaşımları</h3>
+                                    <ul class="space-y-2 text-sm text-black/70 dark:text-white/70">
+                                        <li class="flex items-start gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 flex-shrink-0"></span>
+                                            <span>Çevre dostu ürün ve hizmet vurgusu</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 flex-shrink-0"></span>
+                                            <span>Karbon ayak izi azaltma çabaları</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 flex-shrink-0"></span>
+                                            <span>Toplumsal sorumluluk projeleri</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 flex-shrink-0"></span>
+                                            <span>Şeffaf ve dürüst iletişim</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-10">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">5. Sesli Arama ve Yerel SEO</h2>
+                        <div class="mb-6">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                Sesli arama teknolojilerinin yaygınlaşmasıyla birlikte, SEO stratejileri de bu yeni arama davranışlarına uyum sağlamak zorunda.
+                            </p>
+                            
+                            <div class="p-6 rounded-2xl bg-gradient-to-br from-teal-50 via-white to-brand-50 dark:from-teal-900/20 dark:via-white/5 dark:to-brand-900/20 ring-1 ring-teal-200 dark:ring-teal-800">
+                                <h3 class="font-semibold text-teal-600 dark:text-teal-400 mb-4">Sesli Arama Optimizasyonu İpuçları:</h3>
+                                <div class="grid md:grid-cols-2 gap-6">
+                                    <div>
+                                        <h4 class="font-medium mb-2">İçerik Stratejisi</h4>
+                                        <ul class="space-y-1 text-sm text-black/70 dark:text-white/70">
+                                            <li>• Doğal dil kullanımı</li>
+                                            <li>• Soru-cevap formatında içerik</li>
+                                            <li>• Uzun kuyruk anahtar kelimeler</li>
+                                            <li>• Yerel arama optimizasyonu</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-medium mb-2">Teknik Optimizasyon</h4>
+                                        <ul class="space-y-1 text-sm text-black/70 dark:text-white/70">
+                                            <li>• Hızlı yükleme süreleri</li>
+                                            <li>• Mobil uyumluluk</li>
+                                            <li>• Schema markup kullanımı</li>
+                                            <li>• FAQ bölümleri</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mb-8">
+                        <h2 class="font-heading text-3xl mb-6 text-brand-600">Sonuç</h2>
+                        <div class="p-6 rounded-2xl bg-gradient-to-br from-brand-50 via-white to-mint/30 dark:from-brand-900/20 dark:via-white/5 dark:to-brand-800/20 ring-1 ring-black/10 dark:ring-white/10">
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed mb-4">
+                                2025 yılında dijital pazarlamada başarılı olmak için, bu trendleri takip etmek ve stratejilerinizi buna göre güncellemek kritik önem taşıyor. Yapay zeka, sürdürülebilirlik, video içerik ve sesli arama gibi alanlarda yatırım yaparak, rekabet avantajı elde edebilirsiniz.
+                            </p>
+                            <p class="text-black/70 dark:text-white/70 leading-relaxed">
+                                kaliversee.online olarak, müşterilerimizin bu trendleri etkili bir şekilde uygulamasına yardımcı oluyoruz. Dijital pazarlama stratejinizi güncellemek için bizimle iletişime geçin.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </article>
+
+            <div class="text-center mt-12">
+                <a href="index.html#blog" class="btn-grad btn-grad-primary text-lg px-8 py-4">
+                    Blog'a Dön
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-10 border-t border-black/10 dark:border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-sm text-black/60 dark:text-white/60">© 2025 kaliversee.online. Tüm hakları saklıdır.</p>
+            <div class="flex items-center gap-5 text-sm">
+                <a href="kvkk.html" class="hover:text-brand-600">KVKK</a>
+                <a href="cerez-politikasi.html" class="hover:text-brand-600">Çerez Politikası</a>
+                <a href="#" class="hover:text-brand-600">Sözleşme</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/main.js"></script>
+</body>
+</html>
