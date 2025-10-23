@@ -39,85 +39,9 @@ if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
 }
 </script>
 
-<!-- COPYRIGHT PROTECTION -->
+<!-- COPYRIGHT PROTECTION REMOVED -->
+
 <script>
-// Disable right-click context menu
-document.addEventListener('contextmenu', function(e) {
-  e.preventDefault();
-  return false;
-});
-
-// Disable text selection
-document.addEventListener('selectstart', function(e) {
-  e.preventDefault();
-  return false;
-});
-
-// Disable drag and drop
-document.addEventListener('dragstart', function(e) {
-  e.preventDefault();
-  return false;
-});
-
-// Disable F12, Ctrl+Shift+I, Ctrl+U, Ctrl+S
-document.addEventListener('keydown', function(e) {
-  // F12
-  if (e.keyCode === 123) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+Shift+I (DevTools)
-  if (e.ctrlKey && e.shiftKey && e.keyCode === 73) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+U (View Source)
-  if (e.ctrlKey && e.keyCode === 85) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+S (Save)
-  if (e.ctrlKey && e.keyCode === 83) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+A (Select All)
-  if (e.ctrlKey && e.keyCode === 65) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+C (Copy)
-  if (e.ctrlKey && e.keyCode === 67) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+V (Paste)
-  if (e.ctrlKey && e.keyCode === 86) {
-    e.preventDefault();
-    return false;
-  }
-  // Ctrl+X (Cut)
-  if (e.ctrlKey && e.keyCode === 88) {
-    e.preventDefault();
-    return false;
-  }
-});
-
-// Disable print screen
-document.addEventListener('keyup', function(e) {
-  if (e.keyCode === 44) { // Print Screen
-    e.preventDefault();
-    return false;
-  }
-});
-
-// Console warning
-console.clear();
-console.log('%c⚠️ UYARI! ⚠️', 'color: red; font-size: 20px; font-weight: bold;');
-console.log('%cBu site kaliversee.online tarafından korunmaktadır.', 'color: red; font-size: 14px;');
-console.log('%cYetkisiz erişim ve kopyalama yasaktır!', 'color: red; font-size: 14px;');
-console.log('%c© 2024 kaliversee.online - Tüm hakları saklıdır.', 'color: red; font-size: 12px;');
-
 // Video loading fix for Netlify
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Video loading script started...');
