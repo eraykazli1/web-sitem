@@ -79,6 +79,17 @@ document.addEventListener('DOMContentLoaded', function() {
           MEDIA_ERR_DECODE: video.error.MEDIA_ERR_DECODE,
           MEDIA_ERR_SRC_NOT_SUPPORTED: video.error.MEDIA_ERR_SRC_NOT_SUPPORTED
         });
+        
+        // Log specific error type
+        if (video.error.code === video.error.MEDIA_ERR_ABORTED) {
+          console.error(`Video ${index + 1}: MEDIA_ERR_ABORTED - Video loading was aborted`);
+        } else if (video.error.code === video.error.MEDIA_ERR_NETWORK) {
+          console.error(`Video ${index + 1}: MEDIA_ERR_NETWORK - Network error occurred`);
+        } else if (video.error.code === video.error.MEDIA_ERR_DECODE) {
+          console.error(`Video ${index + 1}: MEDIA_ERR_DECODE - Video format/codec not supported`);
+        } else if (video.error.code === video.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          console.error(`Video ${index + 1}: MEDIA_ERR_SRC_NOT_SUPPORTED - Video source not supported`);
+        }
       }
       
       // Fallback: Hide video and show placeholder
@@ -414,7 +425,12 @@ tailwind.config = {
 <script type="application/ld+json"> { "@context": "https://schema.org", "@type": "Organization", "name": "NordSeal Digital Digital", "url": "https://nordseal.example.com/", "logo": "https://nordseal.example.com/logo.svg", "description": "Modern ve veri odaklı dijital pazarlama ajansı: SEO, Performans Reklamları, Sosyal Medya, Web Tasarım.", "foundingDate": "2020", "address": { "@type": "PostalAddress", "addressCountry": "TR", "addressLocality": "İstanbul" }, "contactPoint": { "@type": "ContactPoint", "telephone": "+90-553-710-22-95", "contactType": "customer service", "email": "kalidijitalmarketingagency@gmail.com" }, "sameAs": [ "https://www.instagram.com/nordsealdigital", "https://www.linkedin.com/company/nordseal-digital" ], "service": [ { "@type": "Service", "name": "Performans Reklamları", "description": "Google Ads, Meta ve TikTok reklamlarıyla ROAS odaklı kampanyalar" }, { "@type": "Service", "name": "SEO ve İçerik Stratejisi", "description": "Teknik SEO, içerik stratejisi ve otorite inşasıyla sürdürülebilir organik büyüme" }, { "@type": "Service", "name": "Web Tasarım & Geliştirme", "description": "Hızlı, erişilebilir ve estetik web siteleri" } ] } </script>
 <noscript><iframe src="https://www.googletagmanager.com/ns.htmlÖid=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript></head>
 <body class="bg-white text-night dark:bg-night dark:text-white">
-<div class="fixed inset-0 -z-20 overflow-hidden" aria-hidden="true"><video id="siteVideo" class="w-full h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted playsinline loop preload="auto" poster="" loading="eager"></video>
+<div class="fixed inset-0 -z-20 overflow-hidden" aria-hidden="true">
+  <video id="siteVideo" class="w-full h-full object-cover" autoplay muted playsinline loop preload="auto" poster="" loading="eager">
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/70 dark:from-night/60 dark:via-night/40 dark:to-night/60"></div>
 </div>
 <div id="loader" class="fixed inset-0 z-50 grid place-items-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
@@ -542,7 +558,12 @@ Dijital Dönüşümünüz İçin Profesyonel Çözümler
 </div>
 </div>
 <div class="relative">
-<div class="w-full aspect-[4/3] rounded-3xl ring-1 ring-black/10 dark:ring-white/10 shadow-soft overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur"><video id="featureVideo" class="w-full h-full object-cover" src="./119843-719443761_small.mp4" preload="auto" autoplay muted loop playsinline loading="eager"></video>
+<div class="w-full aspect-[4/3] rounded-3xl ring-1 ring-black/10 dark:ring-white/10 shadow-soft overflow-hidden bg-white/40 dark:bg-white/5 backdrop-blur">
+  <video id="featureVideo" class="w-full h-full object-cover" preload="auto" autoplay muted loop playsinline loading="eager">
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="pointer-events-none absolute inset-0 bg-white/10 dark:bg-black/20"></div>
 </div>
 </div>
@@ -985,7 +1006,13 @@ E-posta ve kurumsal yönetim paneli
 </div>
 <div class="relative" data-reveal>
 <div class="w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/10 dark:ring-white/10">
-<div class="aspect-video"><video class="w-full h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
+<div class="aspect-video">
+  <video class="w-full h-full object-cover" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
+</div>
 </div>
 <div class="floating-stats absolute -bottom-6 -left-6 p-6 rounded-2xl bg-white/90 dark:bg-night/90 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 shadow-xl">
 <div class="response-card text-center">
@@ -1441,7 +1468,12 @@ E-posta ve kurumsal yönetim paneli
 <div class="mb-16">
 <div class="featured-article relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-50 via-white to-mint/30 dark:from-brand-900/20 dark:via-white/5 dark:to-brand-800/20 ring-1 ring-black/10 dark:ring-white/10" data-reveal>
 <div class="grid lg:grid-cols-2 gap-0">
-<div class="relative"><video class="w-full h-64 lg:h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative">
+  <video class="w-full h-64 lg:h-full object-cover" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-medium">Öne Çıkan</span>
 </div>
@@ -1472,7 +1504,12 @@ E-posta ve kurumsal yönetim paneli
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative">
+  <video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-teal text-white text-xs font-medium">SEO</span>
 </div>
@@ -1499,7 +1536,12 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </article>
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-lime/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative">
+  <video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-lime text-white text-xs font-medium">Web Tasarım</span>
 </div>
@@ -1526,7 +1568,12 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </article>
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-coral/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative">
+  <video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-coral text-white text-xs font-medium">Analytics</span>
 </div>
@@ -1810,7 +1857,13 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </div>
 <div class="rounded-3xl overflow-hidden ring-1 ring-black/10 dark:ring-white/10 shadow-soft">
-<div class="w-full h-64"><video class="w-full h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
+<div class="w-full h-64">
+  <video class="w-full h-full object-cover" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video>
+    <source src="./119843-719443761_small.mp4" type="video/mp4">
+    <source src="./119843-719443761_small.mp4" type="video/mp4; codecs=avc1.42E01E">
+    Your browser does not support the video tag.
+  </video>
+</div>
 </div>
 </div>
 </div>
