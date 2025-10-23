@@ -42,7 +42,7 @@ if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
 <!-- COPYRIGHT PROTECTION REMOVED -->
 
 <script>
-// Video debug and loading
+// Video debug and loading with fallback
 document.addEventListener('DOMContentLoaded', function() {
   console.log('Video debug script started...');
   
@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
       src: video.src,
       readyState: video.readyState,
       networkState: video.networkState,
-      error: video.error
+      error: video.error,
+      videoWidth: video.videoWidth,
+      videoHeight: video.videoHeight,
+      duration: video.duration
     });
     
     video.addEventListener('loadstart', () => {
@@ -67,12 +70,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     video.addEventListener('error', (e) => {
       console.error(`Video ${index + 1} error:`, e);
-      console.error('Video error details:', video.error);
+      if (video.error) {
+        console.error('Video error details:', {
+          code: video.error.code,
+          message: video.error.message,
+          MEDIA_ERR_ABORTED: video.error.MEDIA_ERR_ABORTED,
+          MEDIA_ERR_NETWORK: video.error.MEDIA_ERR_NETWORK,
+          MEDIA_ERR_DECODE: video.error.MEDIA_ERR_DECODE,
+          MEDIA_ERR_SRC_NOT_SUPPORTED: video.error.MEDIA_ERR_SRC_NOT_SUPPORTED
+        });
+      }
+      
+      // Fallback: Hide video and show placeholder
+      video.style.display = 'none';
+      const placeholder = document.createElement('div');
+      placeholder.className = video.className;
+      placeholder.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+      placeholder.style.display = 'flex';
+      placeholder.style.alignItems = 'center';
+      placeholder.style.justifyContent = 'center';
+      placeholder.style.color = 'white';
+      placeholder.style.fontSize = '1.2rem';
+      placeholder.style.fontWeight = 'bold';
+      placeholder.innerHTML = '🎥 Video Yükleniyor...';
+      video.parentNode.insertBefore(placeholder, video);
     });
     
     video.addEventListener('canplay', () => {
       console.log(`Video ${index + 1} can play`);
     });
+    
+    // Test video file accessibility
+    fetch(video.src, { method: 'HEAD' })
+      .then(response => {
+        console.log(`Video ${index + 1} file accessible:`, response.status, response.statusText);
+      })
+      .catch(error => {
+        console.error(`Video ${index + 1} file not accessible:`, error);
+      });
   });
 });
 </script>
@@ -950,7 +985,7 @@ E-posta ve kurumsal yönetim paneli
 </div>
 <div class="relative" data-reveal>
 <div class="w-full rounded-3xl overflow-hidden shadow-2xl ring-1 ring-black/10 dark:ring-white/10">
-<div class="aspect-video"><video class="w-full h-full object-cover" src="./13161043_3840_2160_30fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
+<div class="aspect-video"><video class="w-full h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
 </div>
 <div class="floating-stats absolute -bottom-6 -left-6 p-6 rounded-2xl bg-white/90 dark:bg-night/90 backdrop-blur-sm ring-1 ring-black/10 dark:ring-white/10 shadow-xl">
 <div class="response-card text-center">
@@ -1406,7 +1441,7 @@ E-posta ve kurumsal yönetim paneli
 <div class="mb-16">
 <div class="featured-article relative rounded-3xl overflow-hidden bg-gradient-to-br from-brand-50 via-white to-mint/30 dark:from-brand-900/20 dark:via-white/5 dark:to-brand-800/20 ring-1 ring-black/10 dark:ring-white/10" data-reveal>
 <div class="grid lg:grid-cols-2 gap-0">
-<div class="relative"><video class="w-full h-64 lg:h-full object-cover" src="./3129902-uhd_3840_2160_25fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative"><video class="w-full h-64 lg:h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-medium">Öne Çıkan</span>
 </div>
@@ -1437,7 +1472,7 @@ E-posta ve kurumsal yönetim paneli
 </div>
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-brand-500/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./3129957-uhd_3840_2160_25fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-teal text-white text-xs font-medium">SEO</span>
 </div>
@@ -1464,7 +1499,7 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </article>
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-lime/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./8817503-uhd_3840_2160_30fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-lime text-white text-xs font-medium">Web Tasarım</span>
 </div>
@@ -1491,7 +1526,7 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </article>
 <article class="blog-card group relative rounded-2xl bg-white/70 dark:bg-white/5 ring-1 ring-black/10 dark:ring-white/10 hover:shadow-2xl hover:shadow-coral/10 transition-all duration-500 overflow-hidden" data-reveal>
-<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./9694447-hd_1920_1080_25fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
+<div class="relative"><video class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video>
 <div class="absolute top-4 left-4">
 <span class="px-3 py-1 rounded-full bg-coral text-white text-xs font-medium">Analytics</span>
 </div>
@@ -1775,7 +1810,7 @@ E-posta ve kurumsal yönetim paneli
 </div>
 </div>
 <div class="rounded-3xl overflow-hidden ring-1 ring-black/10 dark:ring-white/10 shadow-soft">
-<div class="w-full h-64"><video class="w-full h-full object-cover" src="./19705424-hd_1920_1080_24fps.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
+<div class="w-full h-64"><video class="w-full h-full object-cover" src="./119843-719443761_small.mp4" autoplay muted preload="auto" loading="eager" loop playsinline data-autoplay-video></video></div>
 </div>
 </div>
 </div>
