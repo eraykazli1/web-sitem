@@ -23,8 +23,11 @@
     }
   };
   
-  // Optimize video loading with lazy loading
+  // Optimize video loading with lazy loading - DISABLED FOR DEBUG
   const optimizeVideos = () => {
+    console.log('Video optimization disabled for debug');
+    return;
+    /*
     const videos = document.querySelectorAll('video');
     videos.forEach(video => {
       // Set up lazy loading for videos with data-src
@@ -60,6 +63,7 @@
         observer.observe(video);
       }
     });
+    */
   };
   
   // Optimize images with lazy loading
@@ -212,8 +216,11 @@ function initGSAP() {
 }
 window.addEventListener('DOMContentLoaded', initGSAP);
 
-// Background video controls with lazy loading
+// Background video controls with lazy loading - DISABLED FOR DEBUG
 function initVideoLayer() {
+  console.log('Video layer initialization disabled for debug');
+  return;
+  /*
   const video = document.getElementById('siteVideo');
   if (!video) return;
   
@@ -303,10 +310,14 @@ function initVideoLayer() {
       });
     }
   }, 3000);
+  */
 }
 
-// Observe featured video visibility and pause/resume
+// Observe featured video visibility and pause/resume - DISABLED FOR DEBUG
 (() => {
+  console.log('Featured video observer disabled for debug');
+  return;
+  /*
   const vid = document.getElementById('featureVideo');
   if (!vid) return;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -324,10 +335,14 @@ function initVideoLayer() {
     });
   }, { threshold: 0.2 });
   io.observe(vid);
+  */
 })();
 
-// Generic observer for inline blog videos
+// Generic observer for inline blog videos - DISABLED FOR DEBUG
 (() => {
+  console.log('Blog video observer disabled for debug');
+  return;
+  /*
   const vids = Array.from(document.querySelectorAll('[data-autoplay-video]'));
   if (!vids.length) return;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -345,6 +360,7 @@ function initVideoLayer() {
     });
   }, { threshold: 0.3 });
   vids.forEach(v => io.observe(v));
+  */
 })();
 
 // Cookie Policy modal controls
