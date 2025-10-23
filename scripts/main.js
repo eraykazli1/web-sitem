@@ -25,6 +25,10 @@
   
   // Optimize video loading with lazy loading
   const optimizeVideos = () => {
+    // Disable main.js video controls to prevent conflicts with HTML video debug script
+    return;
+    
+    // Original video optimization code (disabled)
     const videos = document.querySelectorAll('video');
     videos.forEach(video => {
       // Set up lazy loading for videos with data-src
@@ -217,6 +221,10 @@ function initVideoLayer() {
   const video = document.getElementById('siteVideo');
   if (!video) return;
   
+  // Disable main.js video controls to prevent conflicts with HTML video debug script
+  return;
+  
+  // Original video control code (disabled)
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (prefersReduced) {
     video.pause();

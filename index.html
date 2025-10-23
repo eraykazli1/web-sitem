@@ -140,12 +140,28 @@ document.addEventListener('DOMContentLoaded', function() {
     video.loop = true;
     video.playsInline = true;
     
-    // Try to play video
-    video.play().then(() => {
-      console.log(`Video ${index + 1} playing successfully`);
-    }).catch((error) => {
-      console.error(`Video ${index + 1} play failed:`, error);
-    });
+    // Wait for video to be ready before playing
+    const playVideo = () => {
+      if (video.readyState >= 2) { // HAVE_CURRENT_DATA
+        video.play().then(() => {
+          console.log(`Video ${index + 1} playing successfully`);
+        }).catch((error) => {
+          console.error(`Video ${index + 1} play failed:`, error);
+        });
+      } else {
+        // Wait for video to load
+        video.addEventListener('canplay', () => {
+          video.play().then(() => {
+            console.log(`Video ${index + 1} playing successfully`);
+          }).catch((error) => {
+            console.error(`Video ${index + 1} play failed:`, error);
+          });
+        }, { once: true });
+      }
+    };
+    
+    // Try to play video after a short delay
+    setTimeout(playVideo, 100);
     
     // Test video file accessibility
     fetch(video.src, { method: 'HEAD' })
