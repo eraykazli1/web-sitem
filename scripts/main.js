@@ -236,10 +236,9 @@ function initVideoLayer() {
   // Load video on first user interaction
   const onFirstInteraction = () => {
     loadVideo();
-    video.play().catch(() => {
-      // If autoplay fails, try again after user gesture
-      document.addEventListener('pointerdown', () => video.play(), { once: true });
-      document.addEventListener('keydown', () => video.play(), { once: true });
+    video.play().catch((error) => {
+      // Silently handle autoplay errors
+      console.debug('Video autoplay failed:', error.message);
     });
     document.removeEventListener('pointerdown', onFirstInteraction);
     document.removeEventListener('keydown', onFirstInteraction);
@@ -269,7 +268,9 @@ function initVideoLayer() {
       // Resume playing when tab becomes visible
       setTimeout(() => {
         if (video.paused && !video.ended) {
-          video.play().catch(() => {});
+          video.play().catch((error) => {
+            console.debug('Video resume failed:', error.message);
+          });
         }
       }, 100);
     }
@@ -279,7 +280,9 @@ function initVideoLayer() {
   video.addEventListener('pause', () => {
     if (!document.hidden && !video.ended) {
       setTimeout(() => {
-        video.play().catch(() => {});
+        video.play().catch((error) => {
+          console.debug('Video pause resume failed:', error.message);
+        });
       }, 100);
     }
   });
@@ -287,13 +290,17 @@ function initVideoLayer() {
   // Handle video end and restart
   video.addEventListener('ended', () => {
     video.currentTime = 0;
-    video.play().catch(() => {});
+    video.play().catch((error) => {
+      console.debug('Video restart failed:', error.message);
+    });
   });
 
   // Periodic check to ensure video is playing
   setInterval(() => {
     if (!document.hidden && video.paused && !video.ended && video.readyState >= 2) {
-      video.play().catch(() => {});
+      video.play().catch((error) => {
+        console.debug('Video periodic play failed:', error.message);
+      });
     }
   }, 3000);
 }
@@ -308,7 +315,9 @@ function initVideoLayer() {
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        vid.play().catch(() => {});
+          vid.play().catch((error) => {
+            console.debug('Featured video play failed:', error.message);
+          });
       } else {
         vid.pause();
       }
@@ -327,7 +336,9 @@ function initVideoLayer() {
       const v = entry.target;
       if (prefersReduced) { v.pause(); return; }
       if (entry.isIntersecting) {
-        v.play().catch(() => {});
+        v.play().catch((error) => {
+          console.debug('Autoplay video play failed:', error.message);
+        });
       } else {
         v.pause();
       }
