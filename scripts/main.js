@@ -225,48 +225,32 @@ function initVideoLayer() {
     return;
   }
   
-  // Lazy load video when user scrolls or interacts
-  const loadVideo = () => {
-    if (video.preload === 'none') {
-      video.preload = 'metadata';
-      video.load();
-    }
+  // Video artık doğrudan src ile yüklendiği için sadece play işlemi yap
+  const playVideo = () => {
+    video.play().catch((error) => {
+      console.log('Video autoplay failed:', error);
+      // Autoplay başarısız olursa kullanıcı etkileşimi bekle
+      document.addEventListener('pointerdown', () => {
+        video.play().catch(() => {});
+      }, { once: true });
+      document.addEventListener('keydown', () => {
+        video.play().catch(() => {});
+      }, { once: true });
+    });
   };
   
-  // Load video on first user interaction
-  const onFirstInteraction = () => {
-    loadVideo();
-    video.play().catch(() => {
-      // If autoplay fails, try again after user gesture
-      document.addEventListener('pointerdown', () => video.play(), { once: true });
-      document.addEventListener('keydown', () => video.play(), { once: true });
-    });
-    document.removeEventListener('pointerdown', onFirstInteraction);
-    document.removeEventListener('keydown', onFirstInteraction);
-  };
+  // Video yüklendiğinde otomatik oynat
+  if (video.readyState >= 2) {
+    playVideo();
+  } else {
+    video.addEventListener('loadeddata', playVideo, { once: true });
+  }
   
-  // Load video when it comes into view
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        loadVideo();
-        observer.unobserve(video);
-      }
-    });
-  }, { threshold: 0.1 });
-  
-  observer.observe(video);
-  
-  // Also load on user interaction
-  document.addEventListener('pointerdown', onFirstInteraction, { once: true });
-  document.addEventListener('keydown', onFirstInteraction, { once: true });
-
-  // Handle page visibility changes with better playback control
+  // Handle page visibility changes
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       video.pause(); 
     } else {
-      // Resume playing when tab becomes visible
       setTimeout(() => {
         if (video.paused && !video.ended) {
           video.play().catch(() => {});
@@ -274,28 +258,12 @@ function initVideoLayer() {
       }, 100);
     }
   });
-
-  // Ensure continuous playback
-  video.addEventListener('pause', () => {
-    if (!document.hidden && !video.ended) {
-      setTimeout(() => {
-        video.play().catch(() => {});
-      }, 100);
-    }
-  });
-
+  
   // Handle video end and restart
   video.addEventListener('ended', () => {
     video.currentTime = 0;
     video.play().catch(() => {});
   });
-
-  // Periodic check to ensure video is playing
-  setInterval(() => {
-    if (!document.hidden && video.paused && !video.ended && video.readyState >= 2) {
-      video.play().catch(() => {});
-    }
-  }, 3000);
 }
 
 // Observe featured video visibility and pause/resume
